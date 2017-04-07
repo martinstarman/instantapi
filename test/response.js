@@ -58,7 +58,7 @@ describe("response", () => {
     let json = {a: 1, b: ["@num(0,5)"]}
     let resp = response(json)
     assert.ok(resp.a === 1)
-    assert.ok(typeof resp.b === "object")
+    assert.ok(Array.isArray(resp.b))
     assert.ok(resp.b[0] >= 0 && resp.b[0] < 5)
   })
 
