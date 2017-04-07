@@ -62,4 +62,33 @@ describe("response", () => {
     assert.ok(resp.b[0] >= 0 && resp.b[0] < 5)
   })
 
+  it("simple object with @str()", () => {
+    let json = {a: "@str(2,2)"}
+    let resp = response(json)
+    assert.ok(resp.a.length === 2)
+  })
+
+  it("simple array with @str()", () => {
+    let json = ["@str(3,5)"]
+    let resp = response(json)
+    assert.ok(resp.length === 1)
+    assert.ok(resp[0].length >= 3 && resp[0].length < 5)
+  })
+
+  it("@str() in deeper object", () => {
+    let json = {a: 1, b: {c: "@str(2,5)"}}
+    let resp = response(json)
+    assert.ok(resp.a === 1)
+    assert.ok(typeof resp.b === "object")
+    assert.ok(resp.b.c.length >= 2 && resp.b.c.length < 5)
+  })
+
+  it("@str() in deeper array", () => {
+    let json = {a: 1, b: ["@str(2,5)"]}
+    let resp = response(json)
+    assert.ok(resp.a === 1)
+    assert.ok(Array.isArray(resp.b))
+    assert.ok(resp.b[0].length >= 2 && resp.b[0].length < 5)
+  })
+
 })
