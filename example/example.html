@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>instantapi.js example</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script>
+
+  $.get("http://localhost:3210/" + encodeURIComponent(JSON.stringify(
+      {
+        meta: {
+          limit: 10,
+          offset: 0,
+          total: 100
+        },
+        users: {
+          firstName: "@str(10, 20)",
+          lastName: "@str(10, 20)",
+          age: "@num(0, 100)",
+          "@repeat": 10
+        }
+      }
+    )))
+
+</script>
+</body>
+</html>
