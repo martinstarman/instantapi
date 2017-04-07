@@ -1,0 +1,22 @@
+{
+  "name": "instantapi",
+  "version": "0.0.1",
+  "description": "Development API",
+  "main": "./lib/server.js",
+  "scripts": {
+    "start": "micro -p 3210",
+    "test": "mocha test"
+  },
+  "keywords": [
+    "development",
+    "API",
+    "random",
+    "data"
+  ],
+  "dependencies": {
+    "micro": "^7.3.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
