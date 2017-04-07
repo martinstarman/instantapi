@@ -91,4 +91,21 @@ describe("response", () => {
     assert.ok(resp.b[0].length >= 2 && resp.b[0].length < 5)
   })
 
+  it("@repeat object", () => {
+    let json = {a: 1, "@repeat": 3}
+    let resp = response(json)
+    assert.ok(resp.length === 3)
+    assert.ok(resp[0].a === 1)
+    assert.ok(resp[1].a === 1)
+    assert.ok(resp[2].a === 1)
+  })
+
+  it("@repeat deeper object", () => {
+    let json = {a: {b: "@num(0,10)", "@repeat": 3}}
+    let resp = response(json)
+    assert.ok(resp.a.length === 3)
+    assert.ok(resp.a[0].b >= 0 && resp.a[0].b < 10)
+    assert.ok(resp.a[1].b >= 0 && resp.a[1].b < 10)
+    assert.ok(resp.a[2].b >= 0 && resp.a[2].b < 10)
+  })
 })
