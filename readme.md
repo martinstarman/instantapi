@@ -62,6 +62,9 @@ Returns integer between ```min``` (inclusive) and ```max```
 ### @str(min, max)
 Returns string between ```min``` (inclusive) and ```max```
 
+### @word(count, maxWordLength = 8)
+Returns string in sentence-like form with ```count``` words where each word can't be longer than ```maxWordLength```
+
 ### @repeat
 Return array with repeated object
 
