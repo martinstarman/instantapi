@@ -1,6 +1,6 @@
 {
   "name": "instantapi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Development API",
   "main": "./lib/server.js",
   "scripts": {
