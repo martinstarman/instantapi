@@ -91,6 +91,14 @@ describe("response", () => {
     assert.ok(resp.b[0].length >= 2 && resp.b[0].length < 5)
   })
 
+  it("simple object with @word()", () => {
+    let wordCount = 2
+    let json = {a: "@word(" + wordCount + ",5)"}
+    let resp = response(json)
+    let splitCount = resp.a.split(" ")
+    assert.ok(wordCount === splitCount.length)
+  })
+
   it("@repeat object", () => {
     let json = {a: 1, "@repeat": 3}
     let resp = response(json)
